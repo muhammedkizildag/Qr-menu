@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.getElementById('navbar');
     const mainList = document.getElementById('list');
@@ -18,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let db = {
-        categories: [new Category('Pizzalar', [new Product('Büyük Boy', 'Mantar', 60)])]
+        categories: [new Category('Pizzalar', [new Product('Büyük Boy', 'Mantar', 60)]), new Category('Hamburgerler', [new Product('Bigmac', 'Et Köfte', 150), new Product('Cheeseburger', 'Et Köfte, Peynir', 125)])]
     };
 
     function navigation(category, index) {
@@ -37,6 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
     navlist.forEach(function (v, i) {
         v.addEventListener('click', function () {
             mainList.innerHTML = "";
+            document.getElementById('menu-name').innerHTML = db.categories[i].name;
             db.categories[i].products.forEach(main);
         });
     });
