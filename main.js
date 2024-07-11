@@ -23,12 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     function navigation(category, index) {
-        const navTemplate = `<div class="nav-container"><img src="" alt="" class="nav"><div class="centered">${category.name}</div></div>`;
+        const navTemplate = `<div class="nav-container"><img src="/images/menu-images/${category.name}.jpg" alt="" class="nav"><div id="centered" class="centered">${category.name}</div></div>`;
         navbar.innerHTML += navTemplate;
     }
 
     function main(product) {
-        const cardTemplate = `<div class="card"><img class="image" src="" alt=""><div class="info"><p class="product-name">${product.name}</p><p class="product-ingredient">${product.ingredient}</p></div><p class="price">${product.price}</p></div>`;
+        const cardTemplate = `<div class="card"><img class="image" src="/images/product-image/${product.name}.jpg" alt=""><div class="info"><p class="product-name">${product.name}</p><p class="product-ingredient">${product.ingredient}</p></div><p class="price">${product.price}</p></div>`;
         mainList.innerHTML += cardTemplate;
     }
 
@@ -37,6 +37,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const navlist = Array.from(document.getElementsByClassName('nav-container'));
     navlist.forEach(function (v, i) {
         v.addEventListener('click', function () {
+            const centered = document.getElementsByClassName('centered');
+            Array.from(centered).forEach((element) => {element.classList.remove('centered-lined')});
+            centered[i].classList.add('centered-lined');
             mainList.innerHTML = "";
             document.getElementById('menu-name').innerHTML = db.categories[i].name;
             db.categories[i].products.forEach(main);

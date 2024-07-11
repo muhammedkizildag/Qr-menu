@@ -24,6 +24,12 @@ body {
 .nav-container {
     position: relative;
     display: inline-block;
+    background-color: #000;
+    margin: 5px;
+    height: 90px;
+    width: 160px;
+    border-radius: 10px;
+    
 }
 
 .centered {
@@ -32,17 +38,22 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;
+    color: #ffffff;
     text-align: center;
+}
+
+.centered-lined{
+    border-bottom: 3px solid #ffffff;
 }
 
 
 
 
 .nav {
-    margin: 5px;
     height: 90px;
     width: 160px;
     border-radius: 10px;
+    opacity: 0.8;
 }
 
 
@@ -58,6 +69,7 @@ body {
     display: flex;
     justify-content: space-between;
     background-color: #fff;
+    border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 10px 0;
     width: 100%;
